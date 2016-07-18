@@ -1,0 +1,65 @@
+<html>
+<meta charset='utf-8'>
+<head>
+	<title>blog</title>
+</head>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "css/reset.css" %}">
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="{% static "js/json.js" %}"></script>
+<body>
+	<header class='blog_header'>
+		<div class='top_fixed'>
+			<p class="blog_name">Wueiz's Blog</p>
+			<p class="blog_info">_(:3」∠)_</p>
+			<a href="{% url 'index' %}" class='top_button choice' title='我的博客'>博客</a><a href="#" class='top_button ' title='关于我'>关于我</a>
+		</div>
+	</header>
+	<main class='blog_main'>
+		<div class='left_main'>
+            {% for art in art_list %}
+			<div class='article_card'>
+				<div class="article_title"><p>{{ art.title }}</p></div>
+				<div class="article_info">
+					<div class="article_auto">作者：{{ art.author.all.0.name }}</div>
+					<div class="article_time">时间：{{ art.date }}</div>
+				</div>
+				<div class="article_content">
+					{{  art.content|truncatechars_html:101 }}
+                    {% if art == art_list.0 %}
+					<a href='/article/{{ art.id }}' id="article" class='article_all'>查看全文</a>
+                    {% else %}
+                    <a href='/article/{{ art.id }}' class='article_all'>查看全文</a>
+                    {% endif %}
+				</div>
+			</div>
+            {% endfor %}
+			    <div class='pre page_button' style="display:none">上一页</div>
+            {% if next %}
+			    <div class='then page_button'>下一页</div>
+            {% else %}
+                <div class='then page_button' style="display:none">下一页</div>
+            {% endif %}
+		</div>
+		<div class="right_main">
+			<div class="pigeonhole right_card">
+				<div class="pig_info">标签</div>
+				<ul>
+                    {% for tag in tag_list %}
+					<li class='pig_item'><a href='/tag/{{ tag.id }}'>{{ tag.name }}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="recommond right_card">
+				<div class="re_info">推荐文章</div>
+				<ul>
+                    {% for recommond in recommond_list %}
+					<li class='re_item'><a href='/article/{{ recommond.id }}'>{{ recommond.title }}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</main>
+</body>
+</html>
