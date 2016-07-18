@@ -1,0 +1,138 @@
+html,body{
+	width: 100%;
+	height: 100%;
+
+}
+
+.blog_header{
+	height: 138px;
+	width: 100%;
+	border-bottom: 1px solid #eee;
+}
+
+.top_fixed{
+	width: 80%;
+	margin-left:20%;
+	height: 110px;
+	padding-top:  28px;
+}
+
+.blog_name{
+	font-size: 2.5em;
+	font-weight: blod;
+	margin-bottom: 7px;
+}
+
+.blog_info{
+	color:gray;
+	margin-bottom: 20px;
+}
+
+.top_button{
+	display: inline-block;
+	height: 20%;
+	line-height: 1.5;
+	width: 6%;
+	text-align: center;
+	margin: 0;
+	border:1px solid #eee;
+	text-decoration: none;
+}
+.top_button:hover{
+	background-color: #F6F6F6;
+	text-decoration: none;
+}
+.choice{
+	background-color: #F6F6F6;
+}
+
+.blog_main{
+	background-color: #ddd;
+	width: 100%;
+	height: 100%;
+}
+
+.left_main{
+	float:left;
+	width: 50%;
+	margin-left: 20%;
+}
+.right_main{
+	float: right;
+	width: 20%;
+	margin-right: 7%;
+}
+
+.article_card{
+	width:90%;
+	padding: 5px;
+	margin-top: 20px;
+	background-color: #fff ;
+	border-radius: 5px;
+	box-shadow: 0 .05rem .1rem rgba(0,0,0,.3);
+}
+
+.article_title{
+	width:100%;
+	font-size: 25px;
+	font-weight: 600;
+	border-bottom: 1px solid #ccc;
+}
+
+.article_info{
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.article_time,.article_auto{
+	display: inline-block;
+	margin-right: 5px;
+	color: #999;
+}
+
+.article_content{
+	text-indent: 2em;
+	font-family: "Microsoft YaHei";
+}
+
+.article_all{
+	color:#3354AA;
+}
+
+.article_all:hover{
+	color: black;
+	text-decoration: none;
+}
+
+.right_card{
+	width:90%;
+	padding: 10px;
+	margin-top: 20px;
+	background-color: #fff ;
+	border-radius: 5px;
+	box-shadow: 0 .05rem .1rem rgba(0,0,0,.3);
+}
+
+.pig_item,.re_item{
+	display: block;
+	margin-top: 5px;
+}
+.pig_item > a{
+	color:#3354aa;
+}
+.pig_info , .re_info{
+	font-size: 20px;
+	font-weight: 700;
+	border-bottom: 1px solid #ccc;
+}
+
+.page_button{
+	color:#3af;
+	display: inline-block;
+	margin-top: 20px;
+	cursor:pointer;
+}
+.then{
+	float:right;
+	margin-right: 65px;
+}
