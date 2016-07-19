@@ -23,7 +23,7 @@
 				<div class="article_title"><p>{{ art.title }}</p></div>
 				<div class="article_info">
 					<div class="article_auto">作者：{{ art.author.all.0.name }}</div>
-					<div class="article_time">时间：{{ art.date }}</div>
+					<div class="article_time">时间：{{ art.date|date:"Y-m-d" }}</div>
 				</div>
 				<div class="article_content">
 					{{  art.content|truncatechars_html:101 }}

@@ -11,6 +11,7 @@ $(document).ready(function(){
               // 把 ret 的每一项显示在网页上
                 $('.article_title').eq(i).html(ret[i].title);
                 $('.article_content').eq(i).html(ret[i].content);
+                $('.article_time').eq(i).html(ret[i].dates);
             };
             for(; i < 4; i++){
                 $('.article_card').eq(i).css('display','none')
@@ -31,6 +32,7 @@ $(document).ready(function(){
             for (i = 0; i < 4; i++){
                 $('.article_title').eq(i).html(ret[i].title);
                 $('.article_content').eq(i).html(ret[i].content);
+                $('.article_time').eq(i).html(ret[i].dates);
             }
         })
     })

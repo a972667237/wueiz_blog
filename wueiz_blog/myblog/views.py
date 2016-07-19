@@ -1,5 +1,4 @@
 from django.shortcuts import render,HttpResponse
-from django.http import JsonResponse
 import json
 from .models import article,tag
 import re
@@ -16,13 +15,16 @@ def index(requests):
     return render(requests,'blog.html',{'art_list':art_list,'tag_list':tag_list,'recommond_list':recommond_list,'next':next,'pre':False})
 
 def get_article(requests,art_id):
-    art = article.objects.filter(id=art_id)
-    return HttpResponse(art)
+    art = article.objects.get(id=art_id)
+    return render(requests,'show.html',{
+        'art_title':art.title,'art_date':art.date,'art_author':art.author.all(),'art_tag':art.tag.all(),'art_content':art.content,
+        })
 
 def get_tag(requests,t_id):
     art_list = article.objects.filter(tag__id=t_id)
     tag_list = tag.objects.all()
     recommond_list = article.objects.filter(recommond=True)
+
     return render(requests, 'blog.html', {
         'art_list': art_list, 'tag_list': tag_list, 'recommond_list': recommond_list, 'next': False, 'pre': False
         })
@@ -41,6 +43,8 @@ def get_more(requests):
             i.content = i.content[:101] + '...'
         my_dict['content'] = i.content + " <a href='/article/%s' class='article_all' >查看全文</a> " %(str(i.id))
         my_dict['id'] = i.id
+        my_dict['dates'] = u'时间：' + i.date.__str__()
+
         my_list.append(my_dict)
     return HttpResponse(json.dumps(my_list), content_type='application/json')
 
@@ -60,5 +64,7 @@ def get_pre(requests):
         my_dict['content'] = i.content + " <a href='/article/%s' class='article_all' >查看全文</a> " % (str(i.id))
         my_dict['biggest'] = biggest
         my_dict['id'] = i.id
+        my_dict['dates'] = u'时间：' + i.date.__str__()
+
         my_list.append(my_dict)
     return HttpResponse(json.dumps(my_list), content_type='application/json')
