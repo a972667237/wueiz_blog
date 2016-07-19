@@ -1,0 +1,27 @@
+<html>
+<meta charset='utf-8'>
+<head>
+	<title>blog</title>
+</head>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static "css/show_style.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "css/reset.css" %}">
+<body>
+	<header class='blog_header'>
+		<div class='top_fixed'>
+			<p class="blog_name">Wueiz's Blog</p>
+			<p class="blog_info">_(:3」∠)_</p>
+			<a href="{% url 'index' %}" class='top_button choice' title='我的博客'>博客</a><a href="#" class='top_button ' title='关于我'>关于我</a>
+		</div>
+	</header>
+	<main class='blog_main'>
+		<div class="show_place">
+			<p class="show_title">{{ art_title }}</p>
+			<p class="show_detail">时间：{{ art_date }}|作者：{% for auth in art_author %} {{ auth.name }} {% endfor %}|标签：{% for tag in art_tag %} <a href='/tag/{{ tag.id }}'>{{ tag.name }}</a>{% endfor %}</p>
+			<p class="show_content">{{ art_content }}</p>
+			<a href="{% url 'index' %}" class="back">&lt&lt回到主页</a>
+		</div>
+
+	</main>
+</body>
+</html>
