@@ -1,3 +1,4 @@
+#coding:utf-8
 from django.db import models
 # Create your models here.
 class article(models.Model):
@@ -12,7 +13,7 @@ class article(models.Model):
         verbose_name = '文章'
         verbose_name_plural = verbose_name
         ordering = ['-date']
-    def __str__(self):
+    def __unicode__(self):
         return self.title
 
 class author(models.Model):
@@ -21,7 +22,7 @@ class author(models.Model):
     class Meta:
         verbose_name = '作者'
         verbose_name_plural = verbose_name
-    def __str__(self):
+    def __unicode__(self):
         return self.name
 
 class tag(models.Model):
@@ -29,5 +30,5 @@ class tag(models.Model):
     class Meta:
         verbose_name = '标签'
         verbose_name_plural = verbose_name
-    def __str__(self):
+    def __unicode__(self):
         return self.name
