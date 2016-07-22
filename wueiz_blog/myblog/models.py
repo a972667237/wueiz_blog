@@ -1,9 +1,9 @@
 from django.db import models
-
 # Create your models here.
 class article(models.Model):
     title = models.CharField('标题',max_length=200)
-    content = models.TextField('内容',max_length=1000)
+    article_info = models.TextField('简介',max_length=200,null=True)
+    content = models.TextField('内容',max_length=10000)
     date = models.DateField('日期')
     author = models.ManyToManyField('author')
     tag = models.ManyToManyField('tag')

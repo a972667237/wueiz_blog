@@ -26,7 +26,7 @@
 					<div class="article_time">时间：{{ art.date|date:"Y-m-d" }}</div>
 				</div>
 				<div class="article_content">
-					{{  art.content|truncatechars_html:101 }}
+					{{  art.article_info }}
                     {% if art == art_list.0 %}
 					<a href='/article/{{ art.id }}' id="article" class='article_all'>查看全文</a>
                     {% else %}

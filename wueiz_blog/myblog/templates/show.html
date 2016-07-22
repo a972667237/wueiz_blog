@@ -18,7 +18,7 @@
 		<div class="show_place">
 			<p class="show_title">{{ art_title }}</p>
 			<p class="show_detail">时间：{{ art_date }}|作者：{% for auth in art_author %} {{ auth.name }} {% endfor %}|标签：{% for tag in art_tag %} <a href='/tag/{{ tag.id }}'>{{ tag.name }}</a>{% endfor %}</p>
-			<p class="show_content">{{ art_content }}</p>
+			<p class="show_content">{{ art_content|safe }}</p>
 			<a href="{% url 'index' %}" class="back">&lt&lt回到主页</a>
 		</div>
 

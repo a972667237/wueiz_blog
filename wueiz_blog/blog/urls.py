@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.conf import settings
 from myblog.views import index,get_article,get_more,get_pre,get_tag
+from myblog.upload import upload_image
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -23,5 +25,9 @@ urlpatterns = [
     url(r'^article/(?P<art_id>\d+)',get_article,name='article'),
     url(r'ajax/more',get_more,name='more'),
     url(r'ajax/pre',get_pre,name='pre'),
-    url(r'^tag/(?P<t_id>\d+)',get_tag,name='tag')
+    url(r'^tag/(?P<t_id>\d+)',get_tag,name='tag'),
+    url(r'uploads/(?P<path>.*)$',\
+            "django.views.static.serve",\
+        {"document_root":settings.MEDIA_ROOT,}),
+    url(r'^admin/upload/(?P<dir_name>[^/]+)$', upload_image, name='upload_image'),
 ]

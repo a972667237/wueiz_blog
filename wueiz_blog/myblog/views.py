@@ -39,9 +39,7 @@ def get_more(requests):
         my_dict = {}
         my_dict['title'] = i.title
         my_dict['author'] = i.author.all()[0].name
-        if(len(i.content)>110):
-            i.content = i.content[:101] + '...'
-        my_dict['content'] = i.content + " <a href='/article/%s' class='article_all' >查看全文</a> " %(str(i.id))
+        my_dict['content'] = i.article_info + " <a href='/article/%s' class='article_all' >查看全文</a> " %(str(i.id))
         my_dict['id'] = i.id
         my_dict['dates'] = u'时间：' + i.date.__str__()
 
@@ -61,7 +59,7 @@ def get_pre(requests):
         my_dict['author'] = i.author.all()[0].name
         if (len(i.content) > 110):
             i.content = i.content[:101] + '...'
-        my_dict['content'] = i.content + " <a href='/article/%s' class='article_all' >查看全文</a> " % (str(i.id))
+        my_dict['content'] = i.article_info + " <a href='/article/%s' class='article_all' >查看全文</a> " % (str(i.id))
         my_dict['biggest'] = biggest
         my_dict['id'] = i.id
         my_dict['dates'] = u'时间：' + i.date.__str__()
