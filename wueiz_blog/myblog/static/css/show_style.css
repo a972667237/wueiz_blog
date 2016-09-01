@@ -76,3 +76,11 @@ html,body{
 	float: right;
 	margin-top: 15px;
 }
+.prettyprint {
+    background-color: rgb(247,247,247);
+    padding: 16px;
+    overflow: auto;
+    line-height: 1.45;
+    border-radius: 3px;
+    font-size: 85%;
+}
