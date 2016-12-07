@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.conf import settings
 from myblog.views import index,get_article,get_more,get_pre,get_tag
 from myblog.upload import upload_image
+from wechat.views import wechat_main
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -30,4 +31,5 @@ urlpatterns = [
             "django.views.static.serve",\
         {"document_root":settings.MEDIA_ROOT,}),
     url(r'^admin/upload/(?P<dir_name>[^/]+)$', upload_image, name='upload_image'),
+    url(r'^wechat/', wechat_main, name="wechat")
 ]
